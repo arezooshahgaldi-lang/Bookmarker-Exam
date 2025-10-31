@@ -2,21 +2,27 @@
 <html lang="sv">
   <head>
     <meta charset="utf-8" />
-    <title>Todo Lite – Individuell examination</title>
+    <title>Bokmärken – Individuell examination</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <main class="container">
-      <h1>Todo Lite</h1>
+    <h1>Lägg till ett bokmärke</h1>
 
-      <div class="actions">
-        <input id="todoInput" placeholder="Lägg till uppgift..." />
-        <button id="addBtn">Lägg till</button>
-      </div>
+    <form id="bookmarkForm">
+        <label for="title">Titel:</label>
+        <input type="text" id="title" required>
 
-      <ul id="todoList" class="list"></ul>
-    </main>
+        <label for="author">Författare:</label>
+        <input type="text" id="author" required>
+
+        <label for="url">URL:</label>
+        <input type="url" id="url" required>
+
+        <button type="submit">Lägg till</button>
+    </form>
+
+
 
     <script src="./app.js"></script>
   </body>
