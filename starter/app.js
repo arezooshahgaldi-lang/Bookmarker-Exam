@@ -2,11 +2,10 @@ function getBookmarks() {
     const data = localStorage.getItem('bookmarks');
     return data ? JSON.parse(data) : [];
 }
-
 function saveBookmarks(bookmarks) {
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
 }
-
+ 
 function renderBookmarks() {
     const list = document.getElementById('bookmarkList');
     list.innerHTML = '';
@@ -17,21 +16,17 @@ function renderBookmarks() {
         const li = document.createElement('li');
         li.innerHTML = `
             <a href="${bookmark.url}" target="_blank">${bookmark.title}</a>
-            <button class="delete-btn">Ta bort</button>
+          
         `;
-        li.querySelector('.delete-btn').addEventListener('click', () => {
-            bookmarks.splice(index, 1);
-            saveBookmarks(bookmarks);
-            renderBookmarks();
-        });
         list.appendChild(li);
+        
+
     });
 }
-
 document.getElementById('bookmarkForm').addEventListener('submit', e => {
     e.preventDefault();
     const title = document.getElementById('title').value.trim();
-    const url = document.getElementById('url').value.trim();
+   
 
     if (!title || !url) return;
 
