@@ -26,7 +26,7 @@ function renderBookmarks() {
 document.getElementById('bookmarkForm').addEventListener('submit', e => {
     e.preventDefault();
     const title = document.getElementById('title').value.trim();
-   
+    const url = document.getElementById('url').value.trim();
 
     if (!title || !url) return;
 
