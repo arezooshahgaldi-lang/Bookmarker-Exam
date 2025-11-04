@@ -45,6 +45,7 @@ US4: Ta bort bokmärken med en knapp.
 
 Varje user story har utvecklats i en separat branch med pull requests enligt Git-flöde.
 
+"Jag gjorde en commit i fel branch och när jag bytte till rätt branch så märkte jag att ändringen inte följde med. För att få med den ändringen använde jag cherry-pick för att plocka över committen till den nya branchen."
 
 🔍 Reflektion
 
