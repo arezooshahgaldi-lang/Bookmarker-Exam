@@ -15,7 +15,8 @@ function renderBookmarks() {
     bookmarks.forEach((bookmark, index) => {
         const li = document.createElement('li');
         li.innerHTML = `
-            <a href="${bookmark.url}" target="_blank">${bookmark.title}</a>
+            <a href="${bookmark.url}" target="_blank" rel="noopener noreferrer">${bookmark.title}</a>
+
             <button class="delete-btn">Ta bort</button>
         `;
         li.querySelector('.delete-btn').addEventListener('click', () => {
@@ -25,11 +26,9 @@ function renderBookmarks() {
         });
         
         list.appendChild(li);
-        
-
     });
 }
-document.getElementById('bookmarkForm').addEventListener('submit', e => {
+ document.getElementById('bookmarkForm').addEventListener('submit', e => {
     e.preventDefault();
     const title = document.getElementById('title').value.trim();
     const url = document.getElementById('url').value.trim();
