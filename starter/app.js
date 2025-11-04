@@ -18,6 +18,7 @@ function renderBookmarks() {
             <a href="${bookmark.url}" target="_blank" rel="noopener noreferrer">${bookmark.title}</a>
 
             <button class="delete-btn">Ta bort</button>
+          
         `;
         li.querySelector('.delete-btn').addEventListener('click', () => {
             bookmarks.splice(index, 1);
