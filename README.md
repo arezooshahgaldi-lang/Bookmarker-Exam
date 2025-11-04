@@ -68,3 +68,5 @@ Möjlighet att redigera ett bokmärke.
 Sortera bokmärken alfabetiskt.
 
 Lägga till sökfält för att hitta bokmärken snabbare.
+
+"Jag gjorde en commit i fel branch och när jag bytte till rätt branch så märkte jag att ändringen inte följde med. För att få med den ändringen använde jag cherry-pick för att plocka över committen till den nya branchen."
