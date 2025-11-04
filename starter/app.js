@@ -15,7 +15,7 @@ function renderBookmarks() {
     bookmarks.forEach((bookmark, index) => {
         const li = document.createElement('li');
         li.innerHTML = `
-            <a href="${bookmark.url}" target="_blank">${bookmark.title}</a>
+            <a href="${bookmark.url}" target="_blank" rel="noopener noreferrer">${bookmark.title}</a>
           
         `;
         list.appendChild(li);
