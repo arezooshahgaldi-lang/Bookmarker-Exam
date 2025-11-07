@@ -1,55 +1,46 @@
-const todos = [
-  { text: "Lära mig branches", done: false },
-  { text: "Skapa PR och få review", done: false },
-  { text: "Lösa en mergekonflikt", done: false },
-];
-
-const listEl = document.getElementById("todoList");
-const addBtn = document.getElementById("addBtn");
-const inputEl = document.getElementById("todoInput");
-
-function render() {
-  listEl.innerHTML = "";
-  todos.forEach((t, i) => {
-    const li = document.createElement("li");
-    li.className = "item" + (t.done ? " done" : "");
-
-    const label = document.createElement("span");
-    label.textContent = t.text;
-
-    const spacer = document.createElement("span");
-    spacer.className = "spacer";
-
-    const toggle = document.createElement("button");
-    toggle.textContent = t.done ? "Ångra" : "Klar";
-    toggle.onclick = () => {
-      todos[i].done = !todos[i].done;
-      render();
-    };
-
-    const del = document.createElement("button");
-    del.textContent = "Ta bort";
-    del.onclick = () => {
-      todos.splice(i, 1);
-      render();
-    };
-
-    li.append(label, spacer, toggle, del);
-    listEl.appendChild(li);
-  });
+function getBookmarks() {
+    const data = localStorage.getItem('bookmarks');
+    return data ? JSON.parse(data) : [];
 }
-
-// CONFLICT-SEED: Ändra den här hjälpfunktionen i två olika branches för att skapa en konflikt.
-function addTodo(text) {
-  todos.unshift({ text, done: false });
+function saveBookmarks(bookmarks) {
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
 }
+ 
+function renderBookmarks() {
+    const list = document.getElementById('bookmarkList');
+    list.innerHTML = '';
 
-addBtn.addEventListener("click", () => {
-  const val = inputEl.value.trim();
-  if (!val) return;
-  addTodo(val);
-  inputEl.value = "";
-  render();
+    const bookmarks = getBookmarks();
+
+    bookmarks.forEach((bookmark, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <a href="${bookmark.url}" target="_blank" rel="noopener noreferrer">${bookmark.title}</a>
+
+            <button class="delete-btn">Ta bort</button>
+          
+        `;
+        li.querySelector('.delete-btn').addEventListener('click', () => {
+            bookmarks.splice(index, 1);
+            saveBookmarks(bookmarks);
+            renderBookmarks();
+        });
+        
+        list.appendChild(li);
+    });
+}
+ document.getElementById('bookmarkForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const title = document.getElementById('title').value.trim();
+    const url = document.getElementById('url').value.trim();
+
+    if (!title || !url) return;
+
+    const bookmarks = getBookmarks();
+    bookmarks.push({ title, url });
+    saveBookmarks(bookmarks);
+    renderBookmarks();
+    e.target.reset();
 });
 
-render();
+renderBookmarks();
