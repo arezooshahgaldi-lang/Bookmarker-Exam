@@ -104,4 +104,11 @@ https://github.com/amerdervisicc/ExaminationGIT/pull/1
 
 https://github.com/s91k/mu25-individ-karlsson-simon/pull/4/files
 
+**Mergekonflikt**
+När jag arbetade med min branch feature-readme-update uppstod en konflikt med main som vara i app.js. Den konflikten visades i koden där knappen med klassen för att ta bort bokmärken fanns.
 
+När konflikten uppstod såg jag konfliktmarkeringar i koden (<<<<<<<, =======, >>>>>>>). Jag granskade ändringarna och valde att behålla båda ändringarna genom att klicka på “Accept both changes” i min editor. På så sätt kunde jag behålla både den nya koden från main och min egen uppdatering i feature-readme-update.
+
+Efter att ha löst konflikten och tagit bort konfliktmarkeringarna, sparade jag filen och committade den. Detta gjorde att både mina uppdateringar och uppdateringarna från main nu finns med i koden, och konflikten är löst.
+
+[här är länken](https://drive.google.com/file/d/1x_ih4FlCC66I_zWr-equI2IsJnQQYWVh/view?usp=sharing)
